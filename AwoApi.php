@@ -312,6 +312,18 @@ class AwoApi
         return $this;
     }
 
+    /**
+     * Рекуррентные платежи
+     * Метод устанавливает сущность для работы с апи
+     *
+     * @return $this
+     */
+    public function recurringPayments()
+    {
+        $this->entity = 'contactrecurringpayments';
+        return $this;
+    }
+
 
 
     /**
