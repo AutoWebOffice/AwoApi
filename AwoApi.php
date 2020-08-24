@@ -35,6 +35,7 @@ class AwoApi
     protected $search = [];
     protected $queryVars = [];
 
+    public $testEnv = false;
 
     /**
      * В массиве можно передать apiKeyRead, apiKeyWrite, subdomain
@@ -324,7 +325,17 @@ class AwoApi
         return $this;
     }
 
-
+    /**
+     * Доступы к курсам
+     * Метод устанавливает сущность для работы с апи
+     *
+     * @return $this
+     */
+    public function trainingAccess()
+    {
+        $this->entity = 'trainingAccess';
+        return$this;
+    }
 
     /**
      * Обновляет элемент
@@ -493,9 +504,7 @@ class AwoApi
         foreach ($this->inputData as $item) {
             $xml .= "<item>";
 
-            foreach ($item as $key => $value) {
-                $xml .= "<{$key}>{$value}</{$key}>";
-            }
+            $xml .= $this->arrayToXml($item);
 
             $xml .= "</item>";
         }
@@ -503,6 +512,26 @@ class AwoApi
         $xml .= '</root>';
 
         $this->inputXml = $xml;
+    }
+
+    protected function arrayToXml($value)
+    {
+        if (is_array($value)) {
+            $xml = '';
+
+            foreach ($value as $key => $item) {
+                if (is_numeric($key)) {
+                    $key = 'item';
+                }
+
+                // рекурсия
+                $xml .= "<{$key}>" . $this->arrayToXml($item) . "</{$key}>";
+            }
+
+            return $xml;
+        }
+
+        return $value;
     }
 
     /**
@@ -577,7 +606,9 @@ class AwoApi
             curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $type);
         }
 
-        $url = "https://{$this->subdomain}.autoweboffice.ru/?r=api/rest/{$this->entity}&".http_build_query($this->queryVars);
+        $domain = 'autoweboffice.ru';
+
+        $url = "https://{$this->subdomain}.{$domain}/?r=api/rest/{$this->entity}&".http_build_query($this->queryVars);
         curl_setopt($curl, CURLOPT_URL, $url);
 
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
