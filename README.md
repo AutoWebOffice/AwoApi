@@ -84,8 +84,8 @@ $items = $api->contact()
 - `mainSettings()` - Основные настойки магазина
 - `partner()` - Партнеры
 - `productPinCode()` - Пин коды к товарам
-- `funnelContact()` - Контакты в автоворнках
-- `trainingAccess()` - Контакты в автоворнках
+- `funnelContact()` - Контакты в автоворонках
+- `trainingAccess()` - Доступ к курсам и урокам 
 
 
 # <a name="Method"></a> Доступные методы:
