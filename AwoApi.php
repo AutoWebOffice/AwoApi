@@ -334,7 +334,19 @@ class AwoApi
     public function trainingAccess()
     {
         $this->entity = 'trainingAccess';
-        return$this;
+        return $this;
+    }
+
+    /**
+     * Курсы (тренинги)
+     * Метод устанавливает сущность для работы с апи
+     *
+     * @return $this
+     */
+    public function training()
+    {
+        $this->entity = 'training';
+        return $this;
     }
 
     /**
@@ -514,6 +526,11 @@ class AwoApi
         $this->inputXml = $xml;
     }
 
+    /**
+     * Конвертируем массив в xml
+     * @param $value
+     * @return string
+     */
     protected function arrayToXml($value)
     {
         if (is_array($value)) {
