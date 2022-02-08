@@ -86,7 +86,7 @@ $items = $api->contact()
 - `productPinCode()` - Пин коды к товарам
 - `funnelContact()` - Контакты в автоворонках
 - `trainingAccess()` - Доступ к курсам и урокам 
-
+- `telegramBotSubscriber()` - Подписчики на телеграм бота
 
 # <a name="Method"></a> Доступные методы:
 
