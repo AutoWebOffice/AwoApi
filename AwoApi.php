@@ -217,6 +217,18 @@ class AwoApi
     }
 
     /**
+     * Подписчики на телеграм бота
+     * Метод устанавливает сущность для работы с апи
+     *
+     * @return $this
+     */
+    public function telegramBotSubscriber()
+    {
+        $this->entity = 'telegrambotcontactlnk';
+        return $this;
+    }
+
+    /**
      * Создание подписки
      * Метод устанавливает сущность для работы с апи
      * Данный метод поддерживает только создание подписки
