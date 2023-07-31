@@ -362,6 +362,18 @@ class AwoApi
     }
 
     /**
+     * Присвоенные контакту метки
+     * Метод устанавливает сущность для работы с апи
+     *
+     * @return $this
+     */
+    public function contactTagLnk()
+    {
+        $this->entity = 'contacttaglnk';
+        return $this;
+    }
+
+    /**
      * Обновляет элемент
      *
      * @param int $id ID элемента, который надо обновить

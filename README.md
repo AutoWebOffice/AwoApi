@@ -78,15 +78,13 @@ $items = $api->contact()
 - `subscriberGroup()` - Группы подписчиков
 - `subscriber()` - Подписчики
 - `subscription()` - Подписки (только создание)
-- `advertisingCompany()` - Рекламные кампании
-- `advertisingChannel()` - Каналы рекламы
-- `advertisingChannelStatistics()` - Каналы рекламы - Статистика
 - `mainSettings()` - Основные настойки магазина
 - `partner()` - Партнеры
 - `productPinCode()` - Пин коды к товарам
 - `funnelContact()` - Контакты в автоворонках
 - `trainingAccess()` - Доступ к курсам и урокам 
 - `telegramBotSubscriber()` - Подписчики на телеграм бота
+- `contactTagLnk()` - Присвоенные контакту метки
 
 # <a name="Method"></a> Доступные методы:
 
